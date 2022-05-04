@@ -15,7 +15,7 @@ DICTIONARY = {
   '-.' => 'N',
   '---' => 'O',
   '.--.' => 'P',
-  '--.-' =>  'Q',
+  '--.-' => 'Q',
   '.-.' => 'R',
   '...' => 'S',
   '-' => 'T',
@@ -34,28 +34,29 @@ DICTIONARY = {
   '--...' => '7',
   '---..' => '8',
   '----.' => '9',
-  '-----' => '0',
-}
+  '-----' => '0'
+}.freeze
 
 def decode_char(char)
   letter = DICTIONARY[char]
-  decoded_sentence += letter
+  @decoded_sentence += letter
 end
 
 def decode_word(word)
   word_arr = word.split(/ /)
-  word_arr.each do | char |
+  word_arr.each do |char|
     decode_char(char)
   end
-  decoded_sentence += ' '
+  @decoded_sentence += ' '
 end
 
 def decode(string)
-  decoded_sentence = ''
+  @decoded_sentence = ''
   sentence_arr = string.split(/   /)
-  sentence_arr.each do | word |
+  sentence_arr.each do |word|
     decode_word(word)
   end
+  return @decoded_sentence
 end
 
-decode '.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'
+puts decode '.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'
