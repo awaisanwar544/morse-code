@@ -56,7 +56,7 @@ def decode(string)
   sentence_arr.each do |word|
     decode_word(word)
   end
-  return @decoded_sentence
+  @decoded_sentence
 end
 
 puts decode '.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'
